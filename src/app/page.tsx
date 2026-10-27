@@ -6,6 +6,7 @@ import Checklist from "@/components/Checklist";
 import Faq from "@/components/Faq";
 import PerfSection from "@/components/PerfSection";
 import SaSection from "@/components/SaSection";
+import MetaSection from "@/components/MetaSection";
 import FloatingButton from "@/components/FloatingButton";
 import {
   allowed,
@@ -53,6 +54,7 @@ const NAV = [
   { href: "#usp", label: "USP" },
   { href: "#funnel", label: "퍼널·집행" },
   { href: "#sa", label: "SA 위계" },
+  { href: "#meta", label: "META 구조" },
   { href: "#perf", label: "지표" },
   { href: "#worry", label: "고민" },
   { href: "#ref", label: "참고 자료" },
@@ -559,6 +561,8 @@ export default function Page() {
         </section>
 
         <SaSection />
+
+        <MetaSection />
 
         <PerfSection />
 

@@ -217,9 +217,30 @@ export default function Page() {
 
             <Reveal>
               <div className="matrix">
-                <h3>제품 × ICP 매트릭스</h3>
+                <h3>제품 × 타겟 매트릭스: 어떤 타겟에게 어떤 제품이 주인공인가</h3>
+                <p className="matrix-intro">광고 하나는 타겟 1개 × 메인 제품 1개로 만듭니다. 표의 배지는 그 제품이 해당 타겟에서 맡는 역할입니다.</p>
+
+                <ul className="mx-legend">
+                  <li>
+                    <span className="mx-badge main">메인</span>
+                    <span>이 타겟 광고의 <b>주인공 제품</b>. 예산을 집중합니다.</span>
+                  </li>
+                  <li>
+                    <span className="mx-badge sub">서브</span>
+                    <span>세트·조합 장면에서만 <b>함께 등장</b>. 광고의 주인공으로는 쓰지 않습니다.</span>
+                  </li>
+                  <li>
+                    <span className="mx-badge test">메인 후보 · 테스트 ing</span>
+                    <span>메인으로 <b>유력해서 검증 중</b>. 광고 데이터로 확정합니다.</span>
+                  </li>
+                  <li>
+                    <span className="mx-badge none">-</span>
+                    <span>이 타겟에는 쓰지 않습니다.</span>
+                  </li>
+                </ul>
+
                 <div className="matrix-scroll">
-                  <table>
+                  <table className="mx-table">
                     <thead>
                       <tr>
                         <th scope="col">
@@ -227,7 +248,8 @@ export default function Page() {
                         </th>
                         {matrixCols.map((c) => (
                           <th key={c} scope="col">
-                            {c}
+                            <b>{c}</b>
+                            <small>{icpNames[c].short}</small>
                           </th>
                         ))}
                       </tr>
@@ -235,20 +257,13 @@ export default function Page() {
                     <tbody>
                       {matrix.map((row) => (
                         <tr key={row.product}>
-                          <td>{row.product}</td>
+                          <th scope="row">{row.product}</th>
                           {row.cells.map((c, i) => (
-                            <td
-                              key={i}
-                              aria-label={c === "●" ? "주력" : c === "○" ? "보조" : c === "?" ? "유력, 테스트 중" : "운영 안 함"}
-                            >
-                              {c === "?" ? (
-                                <span className="dot-test">
-                                  <span className="dot-lead">●</span>
-                                  <small>(테스트 ing)</small>
-                                </span>
-                              ) : (
-                                <span className={c === "●" ? "dot-lead" : c === "○" ? "dot-sub" : "dot-none"}>{c}</span>
-                              )}
+                            <td key={i}>
+                              {c === "●" && <span className="mx-badge main">메인</span>}
+                              {c === "○" && <span className="mx-badge sub">서브</span>}
+                              {c === "?" && <span className="mx-badge test">메인 후보 · 테스트 ing</span>}
+                              {c === "—" && <span className="mx-badge none">-</span>}
                             </td>
                           ))}
                         </tr>
@@ -256,12 +271,57 @@ export default function Page() {
                     </tbody>
                   </table>
                 </div>
-                <p className="matrix-legend">
-                  ● 주력 (예산 집중) · ○ 보조 (세트·조합 장면에만) ● (테스트 ing) 유력하게 검증 중 · — 운영 안 함. 타겟명(A1~B2)은 콘텐츠·퍼포먼스 소통에서 함께 쓰는 이름입니다.
-                </p>
+
+                <h4 className="mx-sub-head">타겟별로 보면</h4>
+                <div className="mx-by">
+                  {matrixCols.map((c, j) => {
+                    const pick = (sym: string) => matrix.filter((r) => r.cells[j] === sym).map((r) => r.product);
+                    const main = pick("●");
+                    const cand = pick("?");
+                    const sub = pick("○");
+                    return (
+                      <article key={c} className="mx-card">
+                        <header>
+                          <span className="mx-code">{c}</span>
+                          <b>{icpNames[c].short}</b>
+                        </header>
+                        <dl>
+                          {main.length > 0 && (
+                            <div>
+                              <dt>
+                                <span className="mx-badge main">메인</span>
+                              </dt>
+                              <dd>{main.join(" · ")}</dd>
+                            </div>
+                          )}
+                          {cand.length > 0 && (
+                            <div>
+                              <dt>
+                                <span className="mx-badge test">후보</span>
+                              </dt>
+                              <dd>
+                                {cand.join(" · ")} <small>(테스트 ing)</small>
+                              </dd>
+                            </div>
+                          )}
+                          {sub.length > 0 && (
+                            <div>
+                              <dt>
+                                <span className="mx-badge sub">서브</span>
+                              </dt>
+                              <dd>{sub.join(" · ")}</dd>
+                            </div>
+                          )}
+                        </dl>
+                      </article>
+                    );
+                  })}
+                </div>
+
                 <p className="matrix-alert">
-                  <b>테스트 ing:</b> Plate07·Plate05 × A1·A2 네 칸은 모두 유력한 매칭으로 보고 광고 데이터로 테스트 중입니다. 결과를 보고 주력을 확정해 갑니다.
+                  <b>A1 · A2:</b> Plate07과 Plate05는 어느 한쪽을 메인으로 정하지 않고, 두 제품 모두 메인 후보로 광고 데이터를 보며 테스트 중입니다. 결과를 보고 메인을 확정합니다.
                 </p>
+                <p className="matrix-legend">타겟명(A1~B2)은 콘텐츠·퍼포먼스 소통에서 함께 쓰는 이름입니다.</p>
               </div>
             </Reveal>
 

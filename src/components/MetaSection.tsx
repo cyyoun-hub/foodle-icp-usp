@@ -14,6 +14,7 @@ import {
   metaObserve,
   metaRules,
   metaSources,
+  metaTargeting,
   metaWeek,
 } from "@/content/meta";
 
@@ -216,6 +217,29 @@ export default function MetaSection() {
               </tbody>
             </table>
           </div>
+        </Reveal>
+
+        <h3 className="sub-head">{metaTargeting.title}</h3>
+        <Reveal>
+          <p className="lede">{metaTargeting.lede}</p>
+          <div className="tg-groups">
+            {metaTargeting.groups.map((g) => (
+              <div key={g.name} className="tg-group">
+                <b>{g.name}</b>
+                <ul>
+                  {g.items.map((it) => (
+                    <li key={it}>{it}</li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+          <ul className="plain-list tg-read">
+            {metaTargeting.readout.map((r) => (
+              <li key={r}>{r}</li>
+            ))}
+          </ul>
+          <p className="tg-next">{metaTargeting.next}</p>
         </Reveal>
 
         <Reveal>

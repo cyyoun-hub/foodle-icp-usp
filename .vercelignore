@@ -1,0 +1,8 @@
+# 앱 소스만 업로드한다. 폴더에 있는 내부 문서(PDF, ICP md/json, 스크린샷)는 올리지 않는다.
+/*
+!/src
+!/public
+!/package.json
+!/package-lock.json
+!/tsconfig.json
+!/next.config.mjs

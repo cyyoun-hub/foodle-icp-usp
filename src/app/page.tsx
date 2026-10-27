@@ -112,6 +112,10 @@ export default function Page() {
                     읽는 순서: {intro.order.join(" → ")}
                   </span>
                 </div>
+                <div className="purpose core">
+                  <b>핵심</b>
+                  <span>{intro.core}</span>
+                </div>
                 <div className="purpose check">
                   <b>{intro.checkTitle}</b>
                   <span>{intro.check}</span>
@@ -182,9 +186,10 @@ export default function Page() {
         <section id="icp" className="section bg-cream">
           <div className="wrap">
             <Reveal className="section-head">
-              <p className="eyebrow">Ideal Customer Profile</p>
+              <p className="eyebrow">Ideal Customer Profile · 이 페이지의 핵심</p>
               <h2 className="h-lg">누구에게 말하는가: 30~60대 여성, 다섯 타겟</h2>
               <p className="lede">{targetFrame.lede}</p>
+              <p className="core-banner">{intro.core}</p>
             </Reveal>
 
             <Reveal>

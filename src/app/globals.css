@@ -149,7 +149,8 @@ button { font: inherit; letter-spacing: inherit; color: inherit; }
   box-shadow: var(--shadow-nav);
 }
 .nav .wrap { height: 100%; display: flex; align-items: center; justify-content: space-between; gap: var(--space-4); }
-.brandmark { font-size: 22px; font-weight: 800; color: var(--ink); letter-spacing: -0.02em; }
+.brandmark { display: inline-flex; align-items: center; }
+.brandmark img { height: 30px; width: auto; display: block; mix-blend-mode: multiply; }
 .nav-links { display: none; gap: var(--space-5); }
 .nav-link { font-size: 15px; font-weight: 600; color: var(--ink); padding: 4px 0; border-bottom: 2px solid transparent; transition: border-color 0.2s ease; }
 .nav-link:hover { border-color: var(--green-accent); }

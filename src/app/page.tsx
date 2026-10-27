@@ -64,7 +64,7 @@ export default function Page() {
       <header className="nav">
         <div className="wrap">
           <a href="#top" className="brandmark" aria-label="Foodle 맨 위로">
-            Foodle
+            <img src="/images/foodle-logo.png" alt="Foodle" width={645} height={185} />
           </a>
           <nav className="nav-links" aria-label="주요 섹션">
             {NAV.map((n) => (

@@ -101,22 +101,6 @@ export const metaCycle = [
 ];
 export const metaEndReasons = ["효율 정체", "소재 피로도 증가", "프로모션 종료"];
 
-// 최근 주 (10/19~10/25) 소재 현황. 노션 DB 기준
-export const metaWeek = {
-  label: "10/19~10/25 소재 현황 (노션 DB)",
-  items: [
-    { name: "NC_1_아이밥", camp: "NC", style: "A", product: "Plate07", type: "릴스", state: "진행 중" },
-    { name: "NC_1_돔사용법 ver.2", camp: "NC", style: "A", product: "오벌돔", type: "릴스", state: "진행 중" },
-    { name: "NC_1_돔사용법 ver.3", camp: "NC", style: "A", product: "오벌돔", type: "릴스", state: "진행 중" },
-    { name: "WC_1_아이밥", camp: "WC", style: "A", product: "Plate07", type: "릴스", state: "진행 중" },
-    { name: "WC_2_리얼리뷰식단", camp: "WC", style: "A", product: "Plate05", type: "게시물", state: "진행 중" },
-    { name: "WC_1_돔사용법 ver.3", camp: "WC", style: "A", product: "오벌돔", type: "릴스", state: "종료" },
-    { name: "WT_2_오벌돔전자레인지", camp: "WT", style: "A", product: "오벌돔", type: "게시물", state: "종료", note: "자사몰 트래픽 캠페인 제거" },
-    { name: "PT_2_오벌돔전자레인지", camp: "PT", style: "A", product: "오벌돔", type: "게시물", state: "신규진행", note: "자사몰 트래픽에서 프로필 트래픽으로 이관" },
-    { name: "PT_1_서포터즈", camp: "PT", style: "B", product: "기타", type: "릴스", state: "진행 중" },
-  ],
-};
-
 // 관찰: 사람 기준 정렬이 필요한 지점 (위 DB를 집계)
 export const metaObserve = {
   title: "관찰: 소재가 아직 사람(A1~B2)이 아니라 A/B 두 덩어리로만 나뉘어 있습니다",

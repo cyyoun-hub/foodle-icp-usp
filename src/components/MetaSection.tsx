@@ -15,7 +15,6 @@ import {
   metaRules,
   metaSources,
   metaTargeting,
-  metaWeek,
 } from "@/content/meta";
 
 export default function MetaSection() {
@@ -180,66 +179,6 @@ export default function MetaSection() {
           <p className="micro">
             소재 종료 사유 예시: {metaEndReasons.join(" · ")}. 사유는 노션 DB의 '정리' 칸에 남깁니다.
           </p>
-        </Reveal>
-
-        <h3 className="sub-head">{metaWeek.label}</h3>
-        <Reveal>
-          <div className="table-wrap">
-            <table className="table compact">
-              <thead>
-                <tr>
-                  <th scope="col">소재</th>
-                  <th scope="col">캠페인</th>
-                  <th scope="col">스타일</th>
-                  <th scope="col">제품</th>
-                  <th scope="col">형식</th>
-                  <th scope="col">상태</th>
-                </tr>
-              </thead>
-              <tbody>
-                {metaWeek.items.map((it) => (
-                  <tr key={it.name} className={it.state === "종료" ? "ended" : undefined}>
-                    <th scope="row">
-                      {it.name}
-                      {it.note && <small className="muted-small"> · {it.note}</small>}
-                    </th>
-                    <td>{it.camp}</td>
-                    <td>
-                      <span className={`style-chip ${it.style}`}>{it.style === "A" ? "A 기능형" : "B 브랜드형"}</span>
-                    </td>
-                    <td>{it.product}</td>
-                    <td>{it.type}</td>
-                    <td>
-                      <span className={`state-chip ${it.state === "종료" ? "end" : it.state === "신규진행" ? "new" : ""}`}>{it.state}</span>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </Reveal>
-
-        <h3 className="sub-head">{metaTargeting.title}</h3>
-        <Reveal>
-          <p className="lede">{metaTargeting.lede}</p>
-          <div className="tg-groups">
-            {metaTargeting.groups.map((g) => (
-              <div key={g.name} className="tg-group">
-                <b>{g.name}</b>
-                <ul>
-                  {g.items.map((it) => (
-                    <li key={it}>{it}</li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-          <ul className="plain-list tg-read">
-            {metaTargeting.readout.map((r) => (
-              <li key={r}>{r}</li>
-            ))}
-          </ul>
-          <p className="tg-next">{metaTargeting.next}</p>
         </Reveal>
 
         <Reveal>

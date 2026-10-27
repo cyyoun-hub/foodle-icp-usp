@@ -852,3 +852,5 @@ tr.ended th, tr.ended td { opacity: 0.55; }
 .tg-group li { padding: 4px 12px; border-radius: var(--radius-pill); background: var(--white); font-size: 13px; font-weight: 600; border: 1px solid var(--line); }
 .tg-read { margin-top: var(--space-3); }
 .tg-next { margin-top: var(--space-2); padding: var(--space-2) var(--space-3); border-left: 4px solid var(--green-accent); background: var(--green-light); border-radius: 0 var(--radius-card) var(--radius-card) 0; font-weight: 600; font-size: 15px; }
+
+.funnel-ads li.off { background: transparent; border: 1px dashed rgba(255, 255, 255, 0.4); color: var(--on-dark-soft); font-weight: 500; }

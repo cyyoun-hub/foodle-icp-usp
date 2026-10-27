@@ -353,6 +353,11 @@ export default function Page() {
                           {f.ads.map((a) => (
                             <li key={a}>{a}</li>
                           ))}
+                          {f.adsOff?.map((a) => (
+                            <li key={a} className="off">
+                              {a}
+                            </li>
+                          ))}
                         </ul>
                       )}
                     </div>
@@ -493,7 +498,7 @@ export default function Page() {
                   </span>
                   <span>
                     <i className="b-sa" />
-                    Naver SA {budget.split.sa / 2}%
+                    Naver 검색광고 {budget.split.sa / 2}%
                   </span>
                   <span>
                     <i className="b-da" />

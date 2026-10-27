@@ -162,6 +162,7 @@ export const funnels: {
   role: string;
   owner: string;
   ads?: string[];
+  adsOff?: string[];
   to: { name: string }[];
 }[] = [
   {
@@ -171,10 +172,11 @@ export const funnels: {
     to: [{ name: "자사몰 상세" }, { name: "스마트스토어 상세" }, { name: "인스타 홈" }],
   },
   {
-    from: "네이버",
+    from: "네이버 검색광고",
     role: "구매 의도 검색",
     owner: "AMPM 운영",
-    ads: ["키워드 광고", "쇼핑광고", "애드부스트"],
+    ads: ["쇼핑검색", "애드부스트"],
+    adsOff: ["DA (디스플레이) 아직 미운영"],
     to: [{ name: "스마트스토어" }],
   },
 ];
@@ -182,7 +184,7 @@ export const funnels: {
 // 랜딩별 현재 상태. 전환율은 같은 메타 소재 · 같은 제품(Plate07) 기준 클릭 대비 구매 (9월 말)
 export const landings: { name: string; href: string; inflow: string[]; conv?: string; note: string; tone: "weak" | "strong" | "plain" }[] = [
   { name: "자사몰 (아임웹)", href: "https://www.foodle.biz/", inflow: ["Meta"], conv: "0.8%", note: "유입이 메타 하나. SEO가 약해 검색 유입이 거의 없음", tone: "weak" },
-  { name: "스마트스토어", href: "https://smartstore.naver.com/foodle-seoul", inflow: ["Meta", "네이버 키워드", "쇼핑광고", "애드부스트"], conv: "3.8%", note: "기존 중심 채널. 네이버 검색광고는 여기로만 연결", tone: "strong" },
+  { name: "스마트스토어", href: "https://smartstore.naver.com/foodle-seoul", inflow: ["Meta", "네이버 쇼핑검색", "애드부스트"], conv: "3.8%", note: "기존 중심 채널. 네이버 검색광고는 여기로만 연결", tone: "strong" },
   { name: "인스타 홈", href: "https://www.instagram.com/foodle_official/", inflow: ["Meta"], note: "구매보다 브랜드 탐색용 랜딩", tone: "plain" },
 ];
 
@@ -199,7 +201,7 @@ export const thumbNotice = {
   axes: ["퍼널 (채널 · 랜딩)", "타겟 (A1~B2)", "제품 (Oval Dome · Plate07 · Plate05 · Cactus Cup)"],
 };
 
-export const funnelNote = "네이버는 키워드 광고 · 쇼핑광고 · 애드부스트를 함께 운영 중이며, 디스플레이(DA)는 운영하지 않습니다.";
+export const funnelNote = "네이버 검색광고는 쇼핑검색과 애드부스트를 함께 운영 중이며, 디스플레이 광고(DA)는 아직 운영하지 않습니다.";
 
 // ── 타겟 구분 기준 ──
 export const targetFrame = {
@@ -754,7 +756,7 @@ export const channelRoles = [
   { channel: "인스타 캐러셀", role: "Understand · Trust", icp: "A1 A2 B2", ops: "주 2편 · 저장 유도형" },
   { channel: "인스타 스토리", role: "Trust · Convert", icp: "전체", ops: "주 10회+ · 리뷰 리포스트, FAQ, D-7" },
   { channel: "네이버 블로그", role: "Understand · Trust", icp: "A1 A3 B2", ops: "주 2편 · 검색광고 문제 키워드와 같은 제목" },
-  { channel: "Naver 키워드·쇼핑광고 (SA) · 애드부스트", role: "Convert", icp: "A1 B2 A2 A3", ops: "상시 · 정확·구문검색 · 주간 검색어 마이닝" },
+  { channel: "Naver 검색광고 (쇼핑검색 · 애드부스트)", role: "Convert", icp: "A1 B2 A2 A3", ops: "상시 · 정확·구문검색 · 주간 검색어 마이닝" },
   { channel: "Naver DA", role: "Convert · 리타게팅", icp: "B2 A1", ops: "현재 미운영 (플레이북 계획)" },
   { channel: "리빙 크리에이터", role: "Desire · Trust", icp: "A3 B1", ops: "월 3~5명 · 성과작은 파트너십 광고" },
   { channel: "맘카페·커뮤니티", role: "Trust", icp: "A1", ops: "월 2~4건 실사용 후기 · 협찬 표기 필수" },

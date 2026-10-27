@@ -705,7 +705,7 @@ button { font: inherit; letter-spacing: inherit; color: inherit; }
 
 .goals { margin: 0 0 var(--space-6); padding: var(--space-4); border: 2px solid var(--green-accent); border-radius: var(--radius-card); background: var(--white); }
 .goal-cards { display: grid; gap: var(--space-2); margin-top: var(--space-2); }
-@media (min-width: 768px) { .goal-cards { grid-template-columns: repeat(3, 1fr); } }
+@media (min-width: 768px) { .goal-cards { grid-template-columns: repeat(2, 1fr); } }
 .goal-card { display: flex; flex-direction: column; gap: 2px; padding: var(--space-3); background: var(--cream); border-radius: var(--radius-card); }
 .goal-card span { font-size: 13px; font-weight: 700; color: var(--ink-soft); }
 .goal-card b { font-size: 28px; font-weight: 700; color: var(--green-accent); line-height: 1.2; }

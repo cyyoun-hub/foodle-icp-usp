@@ -231,7 +231,6 @@ export const worries = {
   goals: {
     eyebrow: "AMPM과 함께 연중 달성하고 싶은 목표 · 네이버 + 자사몰",
     cards: [
-      { label: "하반기 온라인커머스 KPI", value: "3천 후반 ~ 4천", sub: "만원 기준" },
       { label: "자사몰 · 네이버 월 매출", value: "2천", sub: "주 500 (만원 기준)" },
       { label: "광고비 증액 조건", value: "ROAS 350~400%", sub: "META · 네이버 모두" },
     ],

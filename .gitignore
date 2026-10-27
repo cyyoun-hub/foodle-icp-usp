@@ -13,3 +13,5 @@ next-env.d.ts
 /스크린샷*
 .vercelignore.bak
 tsconfig.tsbuildinfo
+/푸들*
+/.omc

@@ -74,7 +74,7 @@ export default function IcpTabs() {
 
         <div>
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img className="icp-photo" src={meta.image} alt={meta.alt} style={{ objectPosition: meta.pos }} width={900} height={675} loading="lazy" />
+          <img className="icp-photo" src={meta.image} alt={meta.alt} style={{ objectPosition: meta.pos, aspectRatio: meta.ratio }} width={900} height={675} loading="lazy" />
           <dl className="meta-grid">
             <div>
               <dt>주력 제품</dt>

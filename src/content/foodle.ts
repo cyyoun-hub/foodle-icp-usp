@@ -14,7 +14,7 @@ export const intro = {
   eyebrow: "AMPM 신규 마케터님께 · 푸들 브랜드 이해 가이드",
   purpose:
     "이 페이지는 AMPM 신규 마케터님께 푸들의 제품, 핵심 타겟(잠재 타겟)의 특징, 그리고 앞으로의 방향을 설명드리기 위해 만들었습니다.",
-  order: ["제품", "타겟 · USP", "퍼널 · 집행", "현재 고민"],
+  order: ["제품", "타겟 · USP", "퍼널 · 집행", "지표 · 현재 고민", "참고 자료"],
   checkTitle: "특히 이것만은 꼭 확인해 주세요",
   check:
     "네이버 검색광고와 메타 모두, 캠페인의 축이 제품이 아니라 사람(A1~B2)이 되어 있는지, 아직 제품 중심으로 남아 있는 곳은 없는지 봐 주세요.",
@@ -192,6 +192,13 @@ export const funnelGaps = [
   { from: "검색 · SEO", to: "자사몰", note: "자사몰의 검색 입구가 없음" },
   { from: "고객(A1~B2)별 길", to: "광고 → 썸네일·상세 → 채널", note: "네이버는 고객별 정렬이 진행됐고, 메타는 아직 나누지 못함" },
 ];
+// 마케터님께 미리 공유: 제품 썸네일 이미지 전달 예정
+export const thumbNotice = {
+  title: "곧 전달드릴 자료 · 제품 썸네일 이미지",
+  body: "퍼널별, A1~B2 다섯 타겟별로 각 제품에 맞는 썸네일 이미지를 준비 중입니다. 완성되는 대로 마케터님께 전달드릴 예정이니, 그전에 이 페이지의 타겟과 퍼널 구조를 먼저 참고해 주세요.",
+  axes: ["퍼널 (채널 · 랜딩)", "타겟 (A1~B2)", "제품 (Oval Dome · Plate07 · Plate05 · Cactus Cup)"],
+};
+
 export const funnelNote = "네이버는 키워드 광고 · 쇼핑광고 · 애드부스트를 함께 운영 중이며, 디스플레이(DA)는 운영하지 않습니다.";
 
 // ── 타겟 구분 기준 ──
@@ -221,6 +228,37 @@ export const targetFrame = {
 
 // ── 현재의 고민. 출처: 푸들 마케팅 현황 브리프 (2026-10-23) ──
 export const worries = {
+  goals: {
+    eyebrow: "AMPM과 함께 연중 달성하고 싶은 목표 · 네이버 + 자사몰",
+    cards: [
+      { label: "하반기 온라인커머스 KPI", value: "3천 후반 ~ 4천", sub: "만원 기준" },
+      { label: "자사몰 · 네이버 월 매출", value: "2천", sub: "주 500 (만원 기준)" },
+      { label: "광고비 증액 조건", value: "ROAS 350~400%", sub: "META · 네이버 모두" },
+    ],
+    // 현재: 자사몰+스마트스토어 10/12~18 매출 합계 1,557,132원 / 목표: 주 500만원
+    gauge: { label: "주 매출 (자사몰 + 스마트스토어)", now: 1557132, goal: 5000000, nowLabel: "현재 약 156만원 (10/12~18)", goalLabel: "목표 500만원" },
+    roasGap: [
+      { name: "네이버 쇼핑검색 · 애드부스트 포함 통합", now: 266 },
+      { name: "META", now: 243 },
+    ],
+    logic: "ROAS가 350~400%에 도달해야 광고비를 올릴 수 있고, 그래야 주 매출 500까지 갈 수 있습니다.",
+    question: "과한 증액은 아니면서, 지금보다 4~5배 많은 사람을 모을 수 있는 방법은 무엇일까요?",
+  },
+  focus: {
+    eyebrow: "가장 집중하는 고민",
+    title: "타겟 설정값이 아직 사람 중심으로 정렬되지 않았다고 느낍니다.",
+    body: [
+      "A1~B2 각각의 타겟팅, 즉 타겟 세팅이나 라이프스타일을 고려한 구매 시간대 같은 설정값이 사람 중심 퍼널로 충분히 정렬되지 않았다고 느낍니다.",
+      "알고리즘이 잘 돌더라도 구매 의사, 고객, 제품이 맞물리는 정도가 약하면 의미가 약합니다. 노출량을 늘리는 것이 아니라, 전환율이 높은 노출이 늘어야 합니다.",
+    ],
+    chain: [
+      { step: "사람 기준 세팅", sub: "A1~B2 타겟 · 라이프스타일 · 구매 시간대" },
+      { step: "의사 · 고객 · 제품 매치", sub: "누가, 왜, 어떤 제품을" },
+      { step: "전환율 높은 노출 ↑", sub: "노출량이 아니라 노출의 질" },
+      { step: "ROAS 350% 이상", sub: "중장기 개선 목표" },
+      { step: "광고비 안정적 증액", sub: "350% 도달 후 가능" },
+    ],
+  },
   summary:
     "푸들은 10월부터 광고를 ‘제품 중심’에서 ‘고객 중심’으로 바꾸고 있고, 10/22에 고객 5그룹(ICP)과 실행 플레이북을 확정했습니다. 가장 큰 문제는 자사몰이 같은 광고로도 네이버보다 훨씬 덜 팔리고, 자사몰 유입이 메타 하나에 기대고 있다는 점입니다.",
   status: [
@@ -616,10 +654,10 @@ export const openItems = [
 // accent는 Foodle 제품 색에서 가져온 내부용 구분색이다. 고객 접점에는 쓰지 않는다.
 export const icpMeta: Record<
   string,
-  { image: string; pos: string; alt: string; accent: string; mix: [number, number, number, number]; mixNote: string; shop: { title: string; lines: string[] } }
+  { image: string; pos: string; ratio?: string; alt: string; accent: string; mix: [number, number, number, number]; mixNote: string; shop: { title: string; lines: string[] } }
 > = {
-  A1: { image: "/images/plate07-plate.jpg", pos: "50% 50%", alt: "Plate07에 아침 메뉴를 나눠 담은 식탁", accent: "#b9b4aa", mix: [15, 35, 35, 15], mixNote: "기능·안심 Proof가 핵심", shop: { title: "온 가족을 위한 다양한 메뉴", lines: ["모듈형 구조로 골라담고 조립할 수 있는 Plate 시리즈"] } },
-  A2: { image: "/images/plate05-a2.jpg", pos: "50% 30%", alt: "Plate05에 샐러드와 빵을 칸에 맞춰 담아 먹는 여성", accent: "#d9a8aa", mix: [25, 30, 25, 20], mixNote: "실제 식사 루틴과 사용 빈도", shop: { title: "Plate 05", lines: ["매일의 한 끼부터 아이를 위한 식사까지", "딱 좋은 크기로 자꾸 손이 가는 플레이트"] } },
+  A1: { image: "/images/plate07-a1.jpg", pos: "50% 55%", ratio: "5 / 4", alt: "Plate07에 메뉴를 나눠 담아 아이가 포크로 먹는 식탁", accent: "#b9b4aa", mix: [15, 35, 35, 15], mixNote: "기능·안심 Proof가 핵심", shop: { title: "온 가족을 위한 다양한 메뉴", lines: ["모듈형 구조로 골라담고 조립할 수 있는 Plate 시리즈"] } },
+  A2: { image: "/images/plate05-a2.jpg", pos: "50% 72%", alt: "Plate05에 샐러드와 빵을 칸에 맞춰 담아 먹는 여성", accent: "#d9a8aa", mix: [25, 30, 25, 20], mixNote: "실제 식사 루틴과 사용 빈도", shop: { title: "Plate 05", lines: ["매일의 한 끼부터 아이를 위한 식사까지", "딱 좋은 크기로 자꾸 손이 가는 플레이트"] } },
   A3: { image: "/images/oval-fridge.jpg", pos: "50% 50%", alt: "돔 커버를 덮은 Oval Dome이 냉장고에 들어 있는 모습", accent: "#1e3932", mix: [20, 40, 25, 15], mixNote: "쓰임 시연이 가장 많이 필요", shop: { title: "Oval Dome", lines: ["플레이트, 보울, 때론 덮어두는 용도까지", "하나로 여러 순간을 채우는 양방향 플레이트"] } },
   B1: { image: "/images/oval-wine.jpg", pos: "50% 55%", alt: "딥그린 Oval Dome 위에 과일을 올린 홈파티 테이블", accent: "#e3d57a", mix: [45, 25, 20, 10], mixNote: "첫 발견의 미감이 가장 중요", shop: { title: "파티같은 음식 준비하기", lines: ["오벌돔만의 투명한 돔으로 먼지 방어", "뒤집어서 와인칠링과 샐러드 볼까지"] } },
   B2: { image: "/images/gift-box.jpg", pos: "50% 35%", alt: "Foodle 선물 박스를 건네는 장면", accent: "#a9d5bd", mix: [35, 25, 20, 20], mixNote: "패키지·배송 FAQ가 전환을 좌우", shop: { title: "소중한 분에게 선물하세요", lines: ["취직 선물 · 캑터스컵 — 삭막한 사무실 속 생기 충전 + 수분 충전", "인테리어 선물 · 오벌돔 — 높은 활용도와 고급스러운 인테리어까지", "디저트 러버를 위한 Plate 05 — 뉴트럴한 핑크가 디저트와 잘 어울리는 플레이트"] } },
@@ -771,6 +809,7 @@ export const conclusion = {
   points: [
     { title: "USP에서 UBP로", body: "콘텐츠도 퍼널도 제품 기능이 아니라 고객 중심으로 바꾸려고 시도 중입니다." },
     { title: "아직 제품 중심인 곳이 남아 있습니다", body: "타겟팅과 최적화 관점에서 제품 중심으로 움직이는 곳이 아직 있다고 느낍니다. 운영 중인 캠페인을 보시며 함께 짚어 주세요." },
+    { title: "썸네일 이미지는 곧 전달드립니다", body: "퍼널별, A1~B2 타겟별로 각 제품에 맞는 썸네일 이미지를 준비 중입니다. 준비되는 대로 전달드릴 예정입니다." },
     { title: "전체 길을 A1~B2 단위로", body: "적절한 길목, 적절한 내용, 퍼널 중심으로 전체 길을 설계하고 싶습니다." },
   ],
   linesTitle: "다섯 고객, 다섯 가지 약속",

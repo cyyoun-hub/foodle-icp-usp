@@ -4,6 +4,7 @@ import CountUp from "@/components/CountUp";
 import IcpTabs from "@/components/IcpTabs";
 import Checklist from "@/components/Checklist";
 import Faq from "@/components/Faq";
+import PerfSection from "@/components/PerfSection";
 import FloatingButton from "@/components/FloatingButton";
 import {
   allowed,
@@ -36,6 +37,7 @@ import {
   products,
   season,
   stats,
+  thumbNotice,
   targetFrame,
   visualByGroup,
   visualRoles,
@@ -48,11 +50,9 @@ const NAV = [
   { href: "#icp", label: "타겟" },
   { href: "#usp", label: "USP" },
   { href: "#funnel", label: "퍼널·집행" },
+  { href: "#perf", label: "지표" },
   { href: "#worry", label: "고민" },
-  { href: "#visual", label: "비주얼" },
-  { href: "#guide", label: "가이드" },
-  { href: "#check", label: "검수" },
-  { href: "#faq", label: "FAQ" },
+  { href: "#ref", label: "참고 자료" },
   { href: "#b2b", label: "부록 B2B" },
 ];
 
@@ -73,8 +73,8 @@ export default function Page() {
               </a>
             ))}
           </nav>
-          <a href="#check" className="btn btn-filled">
-            소재 검수
+          <a href="#worry" className="btn btn-filled">
+            현재 고민
           </a>
         </div>
       </header>
@@ -407,6 +407,18 @@ export default function Page() {
                 ))}
               </ul>
             </Reveal>
+
+            <Reveal>
+              <aside className="notice" aria-label="전달 예정 자료 안내">
+                <b>{thumbNotice.title}</b>
+                <p>{thumbNotice.body}</p>
+                <ul>
+                  {thumbNotice.axes.map((a) => (
+                    <li key={a}>{a}</li>
+                  ))}
+                </ul>
+              </aside>
+            </Reveal>
           </div>
         </section>
 
@@ -511,7 +523,7 @@ export default function Page() {
                     </div>
                   );
                 })}
-                <p className="micro">{budget.note}. 절대 금액은 공유 범위에서 제외했습니다.</p>
+                <p className="micro">{budget.note}.</p>
               </div>
             </Reveal>
 
@@ -543,6 +555,8 @@ export default function Page() {
           </div>
         </section>
 
+        <PerfSection />
+
         {/* 현재의 고민 */}
         <section id="worry" className="section bg-white">
           <div className="wrap">
@@ -550,6 +564,67 @@ export default function Page() {
               <p className="eyebrow">Current Challenges</p>
               <h2 className="h-lg">지금 Foodle이 집중하는 고민.</h2>
               <p className="lede">{worries.summary}</p>
+            </Reveal>
+
+            <Reveal>
+              <div className="focus">
+                <p className="eyebrow">{worries.focus.eyebrow}</p>
+                <h3>{worries.focus.title}</h3>
+                {worries.focus.body.map((b) => (
+                  <p key={b}>{b}</p>
+                ))}
+                <ol className="chain" aria-label="고민의 논리 흐름">
+                  {worries.focus.chain.map((c, i) => (
+                    <li key={c.step}>
+                      <b>{c.step}</b>
+                      <small>{c.sub}</small>
+                      {i < worries.focus.chain.length - 1 && <span aria-hidden="true">→</span>}
+                    </li>
+                  ))}
+                </ol>
+              </div>
+            </Reveal>
+
+            <Reveal>
+              <div className="goals">
+                <p className="eyebrow">{worries.goals.eyebrow}</p>
+                <div className="goal-cards">
+                  {worries.goals.cards.map((g) => (
+                    <div key={g.label} className="goal-card">
+                      <span>{g.label}</span>
+                      <b>{g.value}</b>
+                      <small>{g.sub}</small>
+                    </div>
+                  ))}
+                </div>
+                <div className="gauge">
+                  <div className="gauge-head">
+                    <b>{worries.goals.gauge.label}</b>
+                    <span>
+                      {worries.goals.gauge.nowLabel} → {worries.goals.gauge.goalLabel}
+                    </span>
+                  </div>
+                  <div
+                    className="gauge-track"
+                    role="img"
+                    aria-label={`목표 대비 현재 ${Math.round((worries.goals.gauge.now / worries.goals.gauge.goal) * 100)}%`}
+                  >
+                    <i style={{ width: `${(worries.goals.gauge.now / worries.goals.gauge.goal) * 100}%` }} />
+                  </div>
+                  <small>목표의 약 {Math.round((worries.goals.gauge.now / worries.goals.gauge.goal) * 100)}% 수준</small>
+                </div>
+                <ul className="roas-gap">
+                  {worries.goals.roasGap.map((r) => (
+                    <li key={r.name}>
+                      <span>{r.name} 현재 ROAS</span>
+                      <b>{r.now}%</b>
+                      <small>목표 350~400%</small>
+                    </li>
+                  ))}
+                </ul>
+                <p className="goal-logic">{worries.goals.logic}</p>
+                <p className="goal-question">{worries.goals.question}</p>
+              </div>
             </Reveal>
 
             <Reveal>
@@ -643,14 +718,25 @@ export default function Page() {
           </div>
         </section>
 
+        {/* 참고 자료 구분선 */}
+        <section id="ref" className="refband">
+          <div className="wrap">
+            <p className="eyebrow">Reference</p>
+            <h2>여기부터는 참고 자료입니다.</h2>
+            <p>
+              AMPM은 소재를 직접 제작하는 대행사가 아니므로, 아래 비주얼·표현·검수 내용은 소재 제작 규칙이 아니라 푸들 브랜드를 이해하시도록 공유하는 참고용입니다.
+            </p>
+          </div>
+        </section>
+
         {/* 5. 비주얼 디렉션 */}
         <section id="visual" className="section bg-white">
           <div className="wrap">
             <Reveal className="section-head">
-              <p className="eyebrow">Visual Direction</p>
+              <p className="eyebrow">Visual Direction · 참고용</p>
               <h2 className="h-lg">따뜻한 생활의 장면을, 산업디자인의 정제된 시선으로.</h2>
               <p className="lede">
-                사진이 먼저이고 그래픽은 그다음입니다. 사진은 세 가지 역할을 맡고, 한 컷은 한 가지 반응만 노립니다.
+                푸들이 어떤 장면과 분위기를 지향하는지 이해하시도록 정리했습니다. 사진이 먼저이고 그래픽은 그다음이며, 한 컷은 한 가지 반응만 노립니다.
               </p>
             </Reveal>
 
@@ -711,10 +797,10 @@ export default function Page() {
         <section id="guide" className="section bg-white">
           <div className="wrap">
             <Reveal className="section-head">
-              <p className="eyebrow">Agency Guide</p>
-              <h2 className="h-lg">소재를 만들기 전에 알아둘 것</h2>
+              <p className="eyebrow">Reference · 브랜드 이해용</p>
+              <h2 className="h-lg">푸들이 말하는 방식, 알아두면 좋은 것</h2>
               <p className="lede">
-                사실은 아래 제품 정보에 있는 것만 씁니다. 표에 없는 수치·효능·인증은 만들지 않습니다.
+                소재 제작 규칙이 아니라 푸들을 이해하기 위한 참고입니다. 푸들은 아래 제품 정보에 있는 사실만 말하고, 표에 없는 수치·효능·인증은 쓰지 않습니다.
               </p>
             </Reveal>
 
@@ -825,9 +911,9 @@ export default function Page() {
         <section id="check" className="section bg-cream">
           <div className="wrap">
             <Reveal className="section-head">
-              <p className="eyebrow">Final Checklist</p>
-              <h2 className="h-lg">소재를 내보내기 전에, 열 가지를 확인하세요.</h2>
-              <p className="lede">하나라도 “아니오”면 수정한 뒤에 집행합니다.</p>
+              <p className="eyebrow">Reference · 푸들 내부 기준</p>
+              <h2 className="h-lg">푸들은 소재를 내보내기 전에 열 가지를 확인합니다.</h2>
+              <p className="lede">푸들 내부 콘텐츠팀의 검수 기준입니다. 대행사에 요청하는 항목이 아니라, 푸들이 소재를 어떤 기준으로 보는지 이해하시도록 공유합니다.</p>
             </Reveal>
             <Reveal>
               <Checklist />
@@ -839,7 +925,7 @@ export default function Page() {
         <section id="faq" className="section bg-white">
           <div className="wrap">
             <Reveal className="section-head">
-              <p className="eyebrow">FAQ</p>
+              <p className="eyebrow">FAQ · 참고</p>
               <h2 className="h-lg">자주 묻는 질문</h2>
             </Reveal>
             <Reveal>

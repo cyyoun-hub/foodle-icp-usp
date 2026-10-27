@@ -175,7 +175,8 @@ button { font: inherit; letter-spacing: inherit; color: inherit; }
 .dot-lead { color: var(--green-accent); font-size: 18px; }
 .dot-sub { color: var(--green-accent); font-size: 18px; opacity: 0.55; }
 .dot-none { color: var(--ink-soft); opacity: 0.4; }
-.dot-test { display: inline-block; padding: 3px 10px; border: 2px dashed #b45309; border-radius: var(--radius-pill); background: #fff7e0; color: #b45309; font-size: 12px; font-weight: 700; white-space: nowrap; }
+.dot-test { display: inline-flex; flex-direction: column; align-items: center; gap: 2px; line-height: 1.1; }
+.dot-test small { font-size: 11px; font-weight: 700; color: #b45309; white-space: nowrap; }
 .matrix-alert { margin-top: var(--space-2); padding: var(--space-2) var(--space-3); border-left: 3px solid #b45309; background: #fff7e0; border-radius: 0 var(--radius-card) var(--radius-card) 0; font-size: 14px; }
 .matrix-alert b { color: #b45309; }
 .matrix-legend { margin-top: var(--space-3); font-size: 13px; color: var(--ink-soft); }

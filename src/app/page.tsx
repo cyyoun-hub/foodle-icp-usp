@@ -229,10 +229,13 @@ export default function Page() {
                           {row.cells.map((c, i) => (
                             <td
                               key={i}
-                              aria-label={c === "●" ? "주력" : c === "○" ? "보조" : c === "?" ? "매칭 검증 중" : "운영 안 함"}
+                              aria-label={c === "●" ? "주력" : c === "○" ? "보조" : c === "?" ? "유력, 테스트 중" : "운영 안 함"}
                             >
                               {c === "?" ? (
-                                <span className="dot-test">검증 중</span>
+                                <span className="dot-test">
+                                  <span className="dot-lead">●</span>
+                                  <small>(테스트 ing)</small>
+                                </span>
                               ) : (
                                 <span className={c === "●" ? "dot-lead" : c === "○" ? "dot-sub" : "dot-none"}>{c}</span>
                               )}
@@ -244,10 +247,10 @@ export default function Page() {
                   </table>
                 </div>
                 <p className="matrix-legend">
-                  ● 주력 (예산 집중) · ○ 보조 (세트·조합 장면에만) · 검증 중 (아직 주력/보조를 정하지 않음) · — 운영 안 함. 타겟명(A1~B2)은 콘텐츠·퍼포먼스 소통에서 함께 쓰는 이름입니다.
+                  ● 주력 (예산 집중) · ○ 보조 (세트·조합 장면에만) ● (테스트 ing) 유력하게 검증 중 · — 운영 안 함. 타겟명(A1~B2)은 콘텐츠·퍼포먼스 소통에서 함께 쓰는 이름입니다.
                 </p>
                 <p className="matrix-alert">
-                  <b>검증 중:</b> Plate07·Plate05 × A1·A2 네 칸은 모두 매칭을 검증하고 있습니다. 어느 한쪽이 주력이라고 단정하지 않고, 광고 데이터로 확인해 가려는 구간입니다.
+                  <b>테스트 ing:</b> Plate07·Plate05 × A1·A2 네 칸은 모두 유력한 매칭으로 보고 광고 데이터로 테스트 중입니다. 결과를 보고 주력을 확정해 갑니다.
                 </p>
               </div>
             </Reveal>

@@ -180,9 +180,9 @@ export const funnels: {
 ];
 
 // 랜딩별 현재 상태. 전환율은 같은 메타 소재 · 같은 제품(Plate07) 기준 클릭 대비 구매 (9월 말)
-export const landings: { name: string; inflow: string[]; conv?: string; note: string; tone: "weak" | "strong" | "plain" }[] = [
-  { name: "자사몰 (아임웹)", inflow: ["Meta"], conv: "0.8%", note: "유입이 메타 하나. SEO가 약해 검색 유입이 거의 없음", tone: "weak" },
-  { name: "스마트스토어", inflow: ["Meta", "네이버 키워드", "쇼핑광고", "애드부스트"], conv: "3.8%", note: "기존 중심 채널. 네이버 검색광고는 여기로만 연결", tone: "strong" },
+export const landings: { name: string; href: string; inflow: string[]; conv?: string; note: string; tone: "weak" | "strong" | "plain" }[] = [
+  { name: "자사몰 (아임웹)", href: "https://www.foodle.biz/", inflow: ["Meta"], conv: "0.8%", note: "유입이 메타 하나. SEO가 약해 검색 유입이 거의 없음", tone: "weak" },
+  { name: "스마트스토어", href: "https://smartstore.naver.com/foodle-seoul", inflow: ["Meta", "네이버 키워드", "쇼핑광고", "애드부스트"], conv: "3.8%", note: "기존 중심 채널. 네이버 검색광고는 여기로만 연결", tone: "strong" },
   { name: "인스타 홈", inflow: ["Meta"], note: "구매보다 브랜드 탐색용 랜딩", tone: "plain" },
 ];
 
@@ -289,6 +289,7 @@ export const b2b = {
 
 export const officialLinks = [
   { label: "공식몰", href: "https://www.foodle.biz/" },
+  { label: "네이버 스마트스토어", href: "https://smartstore.naver.com/foodle-seoul" },
   { label: "인스타그램", href: "https://www.instagram.com/foodle_official/" },
   { label: "블로그", href: "https://blog.naver.com/official_foodle" },
 ];

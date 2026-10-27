@@ -369,7 +369,11 @@ export default function Page() {
               {landings.map((l, i) => (
                 <Reveal key={l.name} delay={i * 80}>
                   <article className={`landing ${l.tone}`}>
-                    <h4>{l.name}</h4>
+                    <h4>
+                      <a href={l.href} target="_blank" rel="noopener noreferrer" className="inline-link">
+                        {l.name} ↗
+                      </a>
+                    </h4>
                     {l.conv && (
                       <p className="landing-conv">
                         <b>{l.conv}</b> 클릭 대비 구매
@@ -888,6 +892,9 @@ export default function Page() {
                   공식몰 보기
                 </a>
                 <a href={officialLinks[1].href} className="btn btn-ghost-dark btn-lg" target="_blank" rel="noopener noreferrer">
+                  스마트스토어
+                </a>
+                <a href={officialLinks[2].href} className="btn btn-ghost-dark btn-lg" target="_blank" rel="noopener noreferrer">
                   인스타그램
                 </a>
               </div>

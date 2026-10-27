@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { icpMeta, icps, mixLabels, STATUS_LABEL, icpNames, icpPeers, peersNote } from "@/content/foodle";
+import { icpMeta, icps, mixLabels, STATUS_LABEL, icpNames } from "@/content/foodle";
 
 export default function IcpTabs() {
   const [active, setActive] = useState(0);
@@ -149,22 +149,6 @@ export default function IcpTabs() {
           <p className="cta-line">
             CTA · 랜딩: <b>{icp.cta}</b>
           </p>
-        </div>
-
-        <div className="peers" style={{ gridColumn: "1 / -1" }}>
-          <div className="block-label">함께 보는 브랜드 · 동종 플레이어 (참고용 초안)</div>
-          <p className="peers-why">{icpPeers[icp.code].why}</p>
-          <ul className="peers-list">
-            {icpPeers[icp.code].brands.map((b) => (
-              <li key={b.url}>
-                <a href={b.url} target="_blank" rel="noopener noreferrer">
-                  <b>{b.name} ↗</b>
-                  <span>{b.desc}</span>
-                </a>
-              </li>
-            ))}
-          </ul>
-          <p className="peers-note">{peersNote}</p>
         </div>
       </div>
     </div>

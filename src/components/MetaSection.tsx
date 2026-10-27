@@ -68,7 +68,7 @@ export default function MetaSection() {
           <p className="micro">{metaAbNote}</p>
         </Reveal>
 
-        <h3 className="sub-head">캠페인 4개와 월 예산</h3>
+        <h3 className="sub-head">캠페인 3개와 월 예산</h3>
         <Reveal>
           <div className="table-wrap">
             <table className="table">
@@ -110,7 +110,7 @@ export default function MetaSection() {
             ))}
           </div>
           <p className="micro">
-            10/1 업데이트 기준 ({metaBudget.unit}) 합계 {total}만원. 이전 분배는 자사몰 전환 {metaBudget.before[0].v} · 스마트스토어 전환 {metaBudget.before[3].v}이었습니다. {metaBudget.note}
+            현재 ({metaBudget.unit}) 합계 {total}만원. 이전(10/1 업데이트) 분배는 {metaBudget.before.map((b) => `${b.code} ${b.v}`).join(" · ")}이었습니다. {metaBudget.note}
           </p>
         </Reveal>
 

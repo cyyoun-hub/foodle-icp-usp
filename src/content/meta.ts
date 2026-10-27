@@ -45,7 +45,7 @@ export const metaNaming = {
   purpose: [
     { code: "NC", label: "네이버(스마트스토어) 전환" },
     { code: "WC", label: "자사몰 전환" },
-    { code: "WT", label: "자사몰 트래픽" },
+    { code: "WT", label: "자사몰 트래픽 (현재 제거)" },
     { code: "PT", label: "프로필 트래픽" },
   ],
   format: [
@@ -63,31 +63,30 @@ export const metaNaming = {
 
 // 캠페인 구조 (노션 '현재 광고 게재 소재' 표 + 10/1 예산분배)
 export const metaCampaigns = [
-  { code: "NC", purpose: "스마트스토어 전환", name: "26.02_스마트스토어_전환", adset: "260323_타겟_A", budget: 35, note: "기존 ROAS 방어 역할", tone: "mid" },
-  { code: "WC", purpose: "자사몰 전환", name: "26.08_자사몰_전환", adset: "26.09_자사몰 전환_추가소재", budget: 50, note: "핵심 집중. 픽셀 구매 데이터를 모아 머신러닝 최적화를 앞당김", tone: "key" },
-  { code: "WT", purpose: "자사몰 트래픽", name: "26.08_자사몰_트래픽", adset: "26.08_자사몰", budget: 30, note: "방문 유입. 구매는 집계하지 않음", tone: "mid" },
-  { code: "PT", purpose: "프로필 트래픽", name: "26.03_프로필_트래픽", adset: "260323_타겟_B", budget: 25, note: "팔로우 · 브랜드 방문. 구매는 집계하지 않음", tone: "mid" },
+  { code: "NC", purpose: "스마트스토어 전환", name: "26.02_스마트스토어_전환", adset: "260323_타겟_A", budget: 45, note: "각 제품의 스마트스토어 상세페이지로 연결. 기존 ROAS 방어 역할", tone: "mid" },
+  { code: "WC", purpose: "자사몰 전환", name: "26.08_자사몰_전환", adset: "26.09_자사몰 전환_추가소재", budget: 60, note: "각 제품의 자사몰 상세페이지로 연결. 핵심 집중: 픽셀 구매 데이터를 모아 머신러닝 최적화를 앞당김", tone: "key" },
+  { code: "PT", purpose: "프로필 트래픽", name: "26.03_프로필_트래픽", adset: "260323_타겟_B", budget: 35, note: "인스타 홈으로 연결, 팔로워 증가가 목적(구매는 집계하지 않음). 현재 인스타 프로필 링크는 자사몰만 연결되어 있고 스마트스토어 링크는 제거한 상태", tone: "mid" },
 ];
 export const metaBudget = {
   unit: "월 예산, 만원",
+  // 이전: 10/1 업데이트 버전 (자사몰 트래픽 포함)
   before: [
-    { code: "WC", v: 60 },
-    { code: "WT", v: 30 },
-    { code: "PT", v: 25 },
-    { code: "NC", v: 25 },
-  ],
-  after: [
     { code: "WC", v: 50 },
     { code: "WT", v: 30 },
     { code: "PT", v: 25 },
     { code: "NC", v: 35 },
   ],
-  note: "스마트스토어 전환 예산을 10만원 늘리고 자사몰 전환에서 옮겼습니다. 합계는 같습니다. 소재 하나에 하루 1만원 정도가 돌도록 소재 수를 제한하는 것이 분배의 기준입니다.",
+  after: [
+    { code: "WC", v: 60 },
+    { code: "NC", v: 45 },
+    { code: "PT", v: 35 },
+  ],
+  note: "자사몰 트래픽 캠페인을 제거하고 그 30만원을 자사몰 전환, 스마트스토어 전환, 프로필 트래픽에 10만원씩 나눴습니다. 합계는 월 140만원으로 같습니다. 소재 하나에 하루 1만원 정도가 돌도록 소재 수를 제한하는 것이 분배의 기준입니다.",
 };
 
 // 소재 운영 원칙
 export const metaRules = [
-  { title: "캠페인당 소재는 최대 3개", body: "소재 하나에 하루 1만원쯤 확보되어야 학습이 됩니다. 자사몰 전환(일 약 1.7만원)은 2개, 자사몰 트래픽(일 약 1만원)은 1개가 현실적입니다." },
+  { title: "캠페인당 소재는 최대 3개", body: "소재 하나에 하루 1만원쯤 확보되어야 학습이 됩니다. 자사몰 전환(일 약 2만원)은 2개가 현실적입니다." },
   { title: "검증된 소재와 신규 소재를 함께", body: "신규 소재의 전환율은 아직 검증 전이므로, 고효율 기존 소재를 같이 쓰고 신규 소재는 3개를 넘기지 않습니다." },
   { title: "소재를 수정하면 학습이 초기화", body: "랜딩 URL이나 캡션 같은 주요 데이터를 바꾸면 기존 댓글과 반응이 초기화되고 신규 학습으로 들어갑니다. 고효율 소재는 그대로 둡니다." },
   { title: "검증된 소재는 전환 캠페인에 2종", body: "전환율이 검증된 소재는 전환 캠페인에 2종 모두 배치합니다. 소재의 트래픽 효율만 빠르게 보려는 경우에는 트래픽·전환에 동일하게 세팅합니다." },
@@ -112,7 +111,7 @@ export const metaWeek = {
     { name: "WC_1_아이밥", camp: "WC", style: "A", product: "Plate07", type: "릴스", state: "진행 중" },
     { name: "WC_2_리얼리뷰식단", camp: "WC", style: "A", product: "Plate05", type: "게시물", state: "진행 중" },
     { name: "WC_1_돔사용법 ver.3", camp: "WC", style: "A", product: "오벌돔", type: "릴스", state: "종료" },
-    { name: "WT_2_오벌돔전자레인지", camp: "WT", style: "A", product: "오벌돔", type: "게시물", state: "진행 중" },
+    { name: "WT_2_오벌돔전자레인지", camp: "WT", style: "A", product: "오벌돔", type: "게시물", state: "종료", note: "자사몰 트래픽 캠페인 제거" },
     { name: "PT_2_오벌돔전자레인지", camp: "PT", style: "A", product: "오벌돔", type: "게시물", state: "신규진행", note: "자사몰 트래픽에서 프로필 트래픽으로 이관" },
     { name: "PT_1_서포터즈", camp: "PT", style: "B", product: "기타", type: "릴스", state: "진행 중" },
   ],
@@ -123,7 +122,7 @@ export const metaObserve = {
   title: "관찰: 소재가 아직 사람(A1~B2)이 아니라 A/B 두 덩어리로만 나뉘어 있습니다",
   facts: [
     { big: "5개 중 5개", label: "구매 전환 소재(NC·WC)는 모두 A 타겟 · 기능형" },
-    { big: "A 7 · B 1", label: "진행 중 소재의 스타일 분포 (B는 서포터즈 프로필 트래픽 1개)" },
+    { big: "A 6 · B 1", label: "진행 중 소재의 스타일 분포 (B는 서포터즈 프로필 트래픽 1개)" },
     { big: "Plate05 1개", label: "A2(웰니스)의 주력 제품 소재는 리얼리뷰식단 1개뿐" },
   ],
   body: [

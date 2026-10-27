@@ -186,7 +186,7 @@ export const funnels: {
 export const landings: { name: string; href: string; inflow: string[]; conv?: string; note: string; tone: "weak" | "strong" | "plain" }[] = [
   { name: "자사몰 (아임웹)", href: "https://www.foodle.biz/", inflow: ["Meta"], conv: "0.8%", note: "유입이 메타 하나. SEO가 약해 검색 유입이 거의 없음", tone: "weak" },
   { name: "스마트스토어", href: "https://smartstore.naver.com/foodle-seoul", inflow: ["Meta", "네이버 쇼핑검색", "애드부스트"], conv: "3.8%", note: "기존 중심 채널. 네이버 검색광고는 여기로만 연결", tone: "strong" },
-  { name: "인스타 홈", href: "https://www.instagram.com/foodle_official/", inflow: ["Meta"], note: "구매보다 브랜드 탐색용 랜딩", tone: "plain" },
+  { name: "인스타 홈", href: "https://www.instagram.com/foodle_official/", inflow: ["Meta"], note: "구매보다 브랜드 탐색 · 팔로워 증가용 랜딩. 프로필 링크는 현재 자사몰만 연결(스마트스토어 링크는 제거)", tone: "plain" },
 ];
 
 // 아직 이어지지 않은 길 (해결하고 싶은 문제 2·3·4번과 연결)

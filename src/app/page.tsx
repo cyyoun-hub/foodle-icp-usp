@@ -5,6 +5,7 @@ import IcpTabs from "@/components/IcpTabs";
 import Checklist from "@/components/Checklist";
 import Faq from "@/components/Faq";
 import PerfSection from "@/components/PerfSection";
+import SaSection from "@/components/SaSection";
 import FloatingButton from "@/components/FloatingButton";
 import {
   allowed,
@@ -51,6 +52,7 @@ const NAV = [
   { href: "#icp", label: "타겟" },
   { href: "#usp", label: "USP" },
   { href: "#funnel", label: "퍼널·집행" },
+  { href: "#sa", label: "SA 위계" },
   { href: "#perf", label: "지표" },
   { href: "#worry", label: "고민" },
   { href: "#ref", label: "참고 자료" },
@@ -555,6 +557,8 @@ export default function Page() {
             </Reveal>
           </div>
         </section>
+
+        <SaSection />
 
         <PerfSection />
 

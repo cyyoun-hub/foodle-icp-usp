@@ -211,13 +211,13 @@ export const targetFrame = {
       key: "A",
       title: "실용성 중심 · 약간의 페인킬러형",
       desc: "실용성과 안정성이 먼저이고 디자인은 한 스푼. 불편을 해결해 주는 그릇을 찾습니다.",
-      codes: "A1 가족의 식탁 · A2 나의 한 끼 · A3 매일의 살림",
+      codes: "A1 아이 키우는 엄마 · A2 웰니스 건강식단 · A3 다용도 실용 라이프스타일",
     },
     {
       key: "B",
       title: "비타민형 · 심미성과 디자인 중시",
       desc: "Foodle을 있으면 기분이 좋아지는 브랜드로 바라봅니다. 형태와 색, 취향이 구매 이유입니다.",
-      codes: "B1 식탁 위 오브제 · B2 건네는 마음",
+      codes: "B1 홈데코·홈카페 리빙 · B2 기프트",
     },
   ],
   notes: [
@@ -306,10 +306,22 @@ export const worries = {
 
 // ── 부록: B2B 퍼널 (구상 단계) ──
 export const b2b = {
-  lede: "B2B는 크게 두 명의 타겟을 생각하고 있습니다. 검색광고 예산은 배분하되, ROAS나 매출을 기대하지 않고 인바운드 연락(문의)을 얻는 것이 목적입니다.",
+  lede: "B2B 타겟은 B2C 타겟(A1~B2)과 별도로 운용하며, 크게 두 명을 생각하고 있습니다. 검색광고 예산은 배분하되, ROAS나 매출을 기대하지 않고 인바운드 연락(문의)을 얻는 것이 목적입니다.",
   targets: [
-    { name: "답례품 · 기념품 담당자", url: "https://www.foodle.biz/gift", path: "foodle.biz/gift" },
-    { name: "카페테리아 · 구내식당 담당자", url: "https://www.foodle.biz/partnership", path: "foodle.biz/partnership" },
+    {
+      code: "B2B 1",
+      name: "카페테리아 영양사 · 총무팀",
+      companies: ["삼성웰스토리", "아워홈", "풀무원푸드앤컬처", "CJ프레시웨이", "현대그린푸드"],
+      url: "https://www.foodle.biz/partnership",
+      path: "foodle.biz/partnership",
+    },
+    {
+      code: "B2B 2",
+      name: "답례품 · 기념품 (행사)",
+      companies: [] as string[],
+      url: "https://www.foodle.biz/gift",
+      path: "foodle.biz/gift",
+    },
   ],
   flow: [
     { step: "검색광고", sub: "예산 배분은 하되 매출 기대 없음" },
@@ -359,7 +371,7 @@ export const icps: Icp[] = [
     code: "A1",
     scene: "가족의 식탁",
     sceneEn: "Family Table",
-    who: "5~13세 아이를 키우는 엄마",
+    who: "5~12세 아이를 키우는 엄마",
     age: "33~44세",
     product: "Plate07",
     productSub: "○ Plate05 아이 1인분",
@@ -638,7 +650,7 @@ export const faqs = [
   },
   {
     q: "지금 시즌에는 어떤 ICP를 먼저 보나요?",
-    a: "11/16~12/20은 선물(건네는 마음) 피크이고, 12/26부터 건강한 한 끼(나의 한 끼)로 전환해 1월 1~3주가 피크입니다. 1월에는 신학기 대비 가족의 식탁도 시작합니다.",
+    a: "11/16~12/20은 선물(B2 기프트) 피크이고, 12/26부터 건강한 한 끼(A2 웰니스 건강식단)로 전환해 1월 1~3주가 피크입니다. 1월에는 신학기 대비 가족의 식탁도 시작합니다.",
   },
 ];
 
@@ -660,6 +672,14 @@ export const icpMeta: Record<
   A3: { image: "/images/oval-fridge.jpg", pos: "50% 50%", alt: "돔 커버를 덮은 Oval Dome이 냉장고에 들어 있는 모습", accent: "#1e3932", mix: [20, 40, 25, 15], mixNote: "쓰임 시연이 가장 많이 필요", shop: { title: "Oval Dome", lines: ["플레이트, 보울, 때론 덮어두는 용도까지", "하나로 여러 순간을 채우는 양방향 플레이트"] } },
   B1: { image: "/images/oval-wine.jpg", pos: "50% 55%", alt: "딥그린 Oval Dome 위에 과일을 올린 홈파티 테이블", accent: "#e3d57a", mix: [45, 25, 20, 10], mixNote: "첫 발견의 미감이 가장 중요", shop: { title: "파티같은 음식 준비하기", lines: ["오벌돔만의 투명한 돔으로 먼지 방어", "뒤집어서 와인칠링과 샐러드 볼까지"] } },
   B2: { image: "/images/gift-box.jpg", pos: "50% 35%", alt: "Foodle 선물 박스를 건네는 장면", accent: "#a9d5bd", mix: [35, 25, 20, 20], mixNote: "패키지·배송 FAQ가 전환을 좌우", shop: { title: "소중한 분에게 선물하세요", lines: ["취직 선물 · 캑터스컵 — 삭막한 사무실 속 생기 충전 + 수분 충전", "인테리어 선물 · 오벌돔 — 높은 활용도와 고급스러운 인테리어까지", "디저트 러버를 위한 Plate 05 — 뉴트럴한 핑크가 디저트와 잘 어울리는 플레이트"] } },
+};
+// ── 타겟 이름 (직관형). full은 탭·풀이, short는 표·로드맵용 ──
+export const icpNames: Record<string, { full: string; short: string }> = {
+  A1: { full: "5~12세 아이를 키우는 엄마", short: "아이 키우는 엄마" },
+  A2: { full: "자기관리 건강식단 웰니스 여성", short: "웰니스 건강식단" },
+  A3: { full: "다용도 실용성 라이프스타일 (+ 약간의 심미성)", short: "다용도 실용 라이프스타일" },
+  B1: { full: "홈데코 · 홈카페 리빙 (나를 위한)", short: "홈데코 · 홈카페 리빙" },
+  B2: { full: "기프트 (집들이 · 신혼부부 · 명절 등)", short: "기프트" },
 };
 export const mixLabels = ["Desire", "Understand", "Trust", "Convert"];
 
@@ -747,11 +767,11 @@ export const budget = {
   total: 200,
   split: { meta: 100, sa: 50, da: 50 },
   rows: [
-    { label: "건네는 마음 (B2)", code: "B2", meta: 20, sa: 12, da: 20 },
-    { label: "식탁 위 오브제 (B1)", code: "B1", meta: 30, sa: 5, da: 10 },
-    { label: "가족의 식탁 (A1)", code: "A1", meta: 15, sa: 15, da: 10 },
-    { label: "매일의 살림 (A3)", code: "A3", meta: 20, sa: 7, da: 5 },
-    { label: "나의 한 끼 (A2)", code: "A2", meta: 15, sa: 8, da: 5 },
+    { label: "기프트 (B2)", code: "B2", meta: 20, sa: 12, da: 20 },
+    { label: "홈데코 · 홈카페 리빙 (B1)", code: "B1", meta: 30, sa: 5, da: 10 },
+    { label: "아이 키우는 엄마 (A1)", code: "A1", meta: 15, sa: 15, da: 10 },
+    { label: "다용도 실용 라이프스타일 (A3)", code: "A3", meta: 20, sa: 7, da: 5 },
+    { label: "웰니스 건강식단 (A2)", code: "A2", meta: 15, sa: 8, da: 5 },
     { label: "브랜드 키워드 방어", code: "—", meta: 0, sa: 3, da: 0 },
   ],
   note: "12/26 이후 B2 비중 일부를 A2로 이동합니다 (A2의 Meta 비중을 2배로)",
@@ -767,10 +787,10 @@ export const season = {
     { label: "1월", at: 73 },
   ],
   lanes: [
-    { label: "건네는 마음 (B2)", start: 27, end: 61, tone: "peak", note: "11/16~12/20 선물 피크 · D-7 카운트다운" },
-    { label: "나의 한 끼 (A2)", start: 67, end: 90, peakFrom: 73, tone: "peak", note: "12/26 전환 · 1월 1~3주 피크" },
-    { label: "가족의 식탁 (A1)", start: 73, end: 90, tone: "mid", note: "1월 신학기" },
-    { label: "매일의 살림 (A3) · 식탁 위 오브제 (B1)", start: 0, end: 90, tone: "low", note: "전 기간 저강도 · B1 오가닉 20%+" },
+    { label: "기프트 (B2)", start: 27, end: 61, tone: "peak", note: "11/16~12/20 선물 피크 · D-7 카운트다운" },
+    { label: "웰니스 건강식단 (A2)", start: 67, end: 90, peakFrom: 73, tone: "peak", note: "12/26 전환 · 1월 1~3주 피크" },
+    { label: "아이 키우는 엄마 (A1)", start: 73, end: 90, tone: "mid", note: "1월 신학기" },
+    { label: "다용도 실용 (A3) · 홈데코·홈카페 (B1)", start: 0, end: 90, tone: "low", note: "전 기간 저강도 · B1 오가닉 20%+" },
   ],
   marks: [
     { label: "P1 테스트 시작", at: 13 },

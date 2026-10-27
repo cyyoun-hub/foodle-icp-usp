@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { icpMeta, icps, mixLabels, STATUS_LABEL } from "@/content/foodle";
+import { icpMeta, icps, mixLabels, STATUS_LABEL, icpNames } from "@/content/foodle";
 
 export default function IcpTabs() {
   const [active, setActive] = useState(0);
@@ -32,7 +32,7 @@ export default function IcpTabs() {
           >
             <i className="tab-dot" style={{ background: icpMeta[x.code].accent }} aria-hidden="true" />
             <span className="code">{x.code}</span>
-            {x.scene}
+            {icpNames[x.code].full}
           </button>
         ))}
       </div>

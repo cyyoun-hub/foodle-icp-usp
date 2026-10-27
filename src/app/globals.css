@@ -723,3 +723,7 @@ button { font: inherit; letter-spacing: inherit; color: inherit; }
 .roas-gap small { color: var(--ink-soft); }
 .goal-logic { margin-top: var(--space-3); font-size: 15px; }
 .goal-question { margin-top: var(--space-2); padding: var(--space-3); background: var(--green-light); border-radius: var(--radius-card); font-size: 17px; font-weight: 600; color: var(--green-house); }
+
+.b2b-target small { font-size: 12px; font-weight: 700; letter-spacing: 0.06em; color: var(--ink-soft); }
+.b2b-companies { display: flex; flex-wrap: wrap; gap: 6px; list-style: none; padding: 0; margin: 4px 0; }
+.b2b-companies li { padding: 3px 10px; border-radius: var(--radius-pill); background: var(--cream); font-size: 12px; font-weight: 600; }

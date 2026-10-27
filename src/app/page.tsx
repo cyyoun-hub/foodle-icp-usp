@@ -26,6 +26,7 @@ import {
   ecozen,
   finalLines,
   history,
+  icpNames,
   icps,
   matrix,
   matrixCols,
@@ -310,7 +311,7 @@ export default function Page() {
                 {icps.map((icp) => (
                   <div key={icp.code} className="map-row">
                     <div className="map-scene">
-                      {icp.scene}
+                      {icpNames[icp.code].full}
                       <small>
                         {icp.code} · {icp.product}
                       </small>
@@ -1016,7 +1017,15 @@ export default function Page() {
               {b2b.targets.map((t, i) => (
                 <Reveal key={t.name} delay={i * 80}>
                   <a href={t.url} className="b2b-target" target="_blank" rel="noopener noreferrer">
+                    <small>{t.code}</small>
                     <b>{t.name}</b>
+                    {t.companies.length > 0 && (
+                      <ul className="b2b-companies" aria-label="주요 타겟 기업">
+                        {t.companies.map((c) => (
+                          <li key={c}>{c}</li>
+                        ))}
+                      </ul>
+                    )}
                     <span>{t.path} ↗</span>
                   </a>
                 </Reveal>

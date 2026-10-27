@@ -1,6 +1,7 @@
 import Reveal from "@/components/Reveal";
 import {
   saAsks,
+  saBudget,
   saAssign,
   saAssignNote,
   saCampaigns,
@@ -138,6 +139,61 @@ export default function SaSection() {
               </li>
             ))}
           </ol>
+        </Reveal>
+
+        <h3 className="sub-head">{saBudget.title}</h3>
+        <Reveal>
+          <div className="nb">
+            <article className="nb-card now">
+              <span className="nb-tag">{saBudget.now.label}</span>
+              <h4>{saBudget.now.total}</h4>
+              <ul>
+                {saBudget.now.lines.map((l) => (
+                  <li key={l.name}>
+                    <div className="nb-row">
+                      <b>{l.name}</b>
+                      <span>{l.budget}</span>
+                    </div>
+                    <div className="nb-roas">
+                      <div className="nb-track" aria-hidden="true">
+                        <i className={l.roasVal >= 350 ? "ok" : "low"} style={{ width: `${(l.roasVal / 450) * 100}%` }} />
+                        <em style={{ left: `${(350 / 450) * 100}%` }} />
+                      </div>
+                      <strong>{l.roas}</strong>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+              <p className="micro">{saBudget.roasNote}</p>
+            </article>
+            <span className="nb-arrow" aria-hidden="true">
+              →
+            </span>
+            <article className="nb-card next">
+              <span className="nb-tag">{saBudget.next.label}</span>
+              <h4>{saBudget.next.total}</h4>
+              <ul>
+                {saBudget.next.lines.map((l) => (
+                  <li key={l.name}>
+                    <div className="nb-row">
+                      <b>{l.name}</b>
+                      <span>{l.budget}</span>
+                    </div>
+                    <small>{l.note}</small>
+                  </li>
+                ))}
+              </ul>
+              <div className="nb-b2b">
+                {saBudget.next.b2b.map((b) => (
+                  <span key={b.name}>
+                    {b.name} <b>{b.budget}</b>
+                  </span>
+                ))}
+              </div>
+            </article>
+          </div>
+          <p className="sa-line">{saBudget.direction}</p>
+          <p className="goal-question">{saBudget.core}</p>
         </Reveal>
 
         <h3 className="sub-head">추가 개선이 필요한 부분</h3>

@@ -128,6 +128,36 @@ export const saStatus = {
   ],
 };
 
+// 네이버 예산: 현재와 중기 지향점 (푸들 내부 계획, 2026.10.27 기준)
+export const saBudget = {
+  title: "네이버 예산: 현재와 중기 지향점",
+  now: {
+    label: "현재",
+    total: "총예산 100만원",
+    lines: [
+      { name: "애드부스트", budget: "월 60~80만원", roas: "ROAS 200%", roasVal: 200 },
+      { name: "쇼핑검색", budget: "월 10만원", roas: "ROAS 300~400%", roasVal: 350 },
+    ],
+  },
+  next: {
+    label: "중기 지향점",
+    total: "총예산 130만원 · ROAS 350% 이상",
+    lines: [
+      { name: "쇼핑검색", budget: "비중 50~70%", note: "핵심. ROAS 350% 이상을 쇼핑검색에서 만든다" },
+      { name: "애드부스트", budget: "비중 조율", note: "ROAS 증액에 한계가 있어 쇼핑검색을 키우며 줄여 간다" },
+      { name: "B2B 파워링크", budget: "월 30만원", note: "ROAS는 따로 보지 않고, 담당자 연결이 목적" },
+    ],
+    b2b: [
+      { name: "B2B 1 (영양사)", budget: "15만원" },
+      { name: "B2B 2 (답례품)", budget: "15만원" },
+    ],
+  },
+  direction:
+    "애드부스트는 ROAS를 더 올리는 데 한계가 있어서, 쇼핑검색을 최적화해 ROAS 350%에 도달하는 것이 목표입니다. 점차 쇼핑검색의 비중을 늘리고 싶습니다.",
+  core: "핵심은 퍼널 설계를 잘해서, 네이버 전반에서 ROAS 350% 이상이 나오도록 실력으로 키우는 것입니다.",
+  roasNote: "손익분기 ROAS 350%. 쇼핑검색 300~400%는 범위의 가운데로 표시했습니다.",
+};
+
 // 추가 개선이 필요한 부분
 export const saImprove = [
   {

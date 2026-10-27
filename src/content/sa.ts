@@ -2,7 +2,7 @@
 // 규칙: 숫자와 그룹명은 원본 문서에 있는 값만 쓴다.
 
 export const saSummary = [
-  { value: "5", label: "캠페인", sub: "A1 · A2 · A3 · B1 · B2" },
+  { value: "5", label: "캠페인", sub: "A1 · A2 · A3 · B1 · B2 (+ C1 구분 요청 예정)" },
   { value: "19", label: "광고그룹", sub: "검색어 묶음 단위" },
   { value: "32", label: "소재명", sub: "그룹 × 제품 단위" },
 ];
@@ -48,13 +48,11 @@ export const saCampaigns: {
     name: "다용도 실용 라이프스타일",
     products: "Plate07 · Plate05 · Oval Dome",
     role: "확장",
-    note: "새로운 활용 상황과 타깃을 발굴하는 확장 캠페인. 노출 이미지는 소재별 개별 등록",
+    note: "과일 · 보관 · 서빙처럼 기존 용도를 넓히는 확장 캠페인. 노출 이미지는 소재별 개별 등록",
     groups: [
       { name: "과일 접시 · 과일 그릇" },
       { name: "보관 · 음식 덮개" },
       { name: "서빙 볼 · 다용도 접시" },
-      { name: "캠핑 식판 · 트레이", flag: "new", flagText: "신규 · 검색량 확인" },
-      { name: "혼술 · 안주 접시", flag: "new", flagText: "신규 · 검색량 확인" },
     ],
   },
   {
@@ -77,6 +75,17 @@ export const saCampaigns: {
     role: "탐색",
     note: "선물 수요에 맞는 제품을 관찰하는 탐색 캠페인. 노출 이미지는 소재별 개별 등록",
     groups: [{ name: "그릇 선물 · 접시 선물세트" }, { name: "손님용 접시 · 손님 대접" }, { name: "집들이 선물 · 집들이 접시" }],
+  },
+  {
+    code: "C1",
+    name: "탐색 키워드 캠페인",
+    products: "Plate07 · Plate05",
+    role: "탐색",
+    note: "네이버 검색광고에서 A3와 분리해 구분을 요청할 예정입니다. 전환 이력이 없는 키워드를 탐색하는 캠페인이라 전환보다 노출 · 클릭 반응을 먼저 봅니다",
+    groups: [
+      { name: "캠핑 식판 · 트레이", flag: "new", flagText: "신규 · 요청 예정" },
+      { name: "혼술 · 안주 접시", flag: "new", flagText: "신규 · 요청 예정" },
+    ],
   },
 ];
 
@@ -101,6 +110,7 @@ export const saAssign = [
   { product: "Plate05", to: "A2 전용" },
   { product: "Oval Dome", to: "B1 전용" },
   { product: "A3 · B2", to: "다제품 유지 (A3 확장 · B2 탐색)" },
+  { product: "캠핑 · 혼술", to: "C1 탐색 키워드 캠페인 (구분 요청 예정)" },
 ];
 export const saAssignNote = "B1에서 Plate05를 뺀 이유: Plate05 썸네일을 A2 기준(성인 한 끼·식단)으로 찍으면 B1 수요(취향·플레이팅)와 어긋나기 때문입니다. Oval Dome은 B1에서 이미 전환 3건이 있습니다.";
 
@@ -147,8 +157,8 @@ export const saImprove = [
   {
     tag: "합의",
     tone: "mid",
-    title: "확장(A3)과 탐색(B2)의 판정 기준 분리",
-    body: "캠핑·혼술 그룹은 전환 이력이 없는 키워드라 전환보다 노출·클릭 반응을 먼저 봅니다. 11/6 판정회의 전에 기준 합의가 필요합니다.",
+    title: "확장(A3) · 탐색(B2, C1)의 판정 기준 분리",
+    body: "캠핑·혼술은 A3에 넣지 않고 C1(탐색 키워드 캠페인)로 분리해 요청할 예정입니다. 전환 이력이 없는 키워드라 전환보다 노출·클릭 반응을 먼저 봅니다. 11/6 판정회의 전에 기준 합의가 필요합니다.",
   },
 ];
 
@@ -158,11 +168,11 @@ export const saAsks: { no: number; item: string; status: string }[] = [
   { no: 2, item: "'식판' · '오발접시' 구문 제외 금지, 일치검색어 제외로만 유지", status: "선행 필수" },
   { no: 3, item: "B1에서 Plate05 제외, Oval Dome 단독으로 변경", status: "요청" },
   { no: 4, item: "A3 · B2 소재별 노출용 이미지 개별 등록 (21개). A1 · A2 · B1은 기존 이미지 유지", status: "요청" },
-  { no: 5, item: "A3에 캠핑 · 혼술 그룹 추가 (키워드 검색량 확인 후 확정)", status: "요청" },
+  { no: 5, item: "캠핑 · 혼술 그룹을 A3가 아닌 C1(탐색 키워드 캠페인)로 구분 (키워드 검색량 확인 후 확정). 푸들이 곧 요청 예정", status: "요청 예정" },
   { no: 6, item: "전환 이력 키워드 6개 명시 등록: 성인모듈식판 · 오발접시에그쉘 · 오발플레이돔 · 식판전자레인지 · 식판접시 · 과일그릇", status: "요청" },
   { no: 7, item: "신규 19개 그룹에 기존 제외 세트가 등록됐는지 확인 (제외는 그룹 단위라 승계되지 않음)", status: "확인" },
   { no: 8, item: "전 그룹 공통 제외 세트 구조로 운영", status: "요청" },
-  { no: 9, item: "A3(확장) · B2(탐색) 판정 기준 분리 (11/6 판정회의 전 합의)", status: "협의" },
+  { no: 9, item: "A3(확장) · B2/C1(탐색) 판정 기준 분리 (11/6 판정회의 전 합의)", status: "협의" },
   { no: 10, item: "소재명 · 홍보문구는 우선 세팅하고, 차주부터 수정본 순차 전달", status: "안내" },
 ];
 

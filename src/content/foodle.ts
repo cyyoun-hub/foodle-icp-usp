@@ -684,6 +684,41 @@ export const icpNames: Record<string, { full: string; short: string }> = {
   B1: { full: "홈데코 · 홈카페 리빙 (나를 위한)", short: "홈데코 · 홈카페 리빙" },
   B2: { full: "기프트 (집들이 · 신혼부부 · 명절 등)", short: "기프트" },
 };
+// ── 타겟별 유사 브랜드 · 동종 플레이어 (참고용 초안: 공식 사이트가 열리는 것만 수록, Figma BIS 리서치로 교체 예정) ──
+export const peersNote = "참고용 초안입니다. 푸들 내부 리서치(Figma BIS)가 아니라, 공식 사이트가 열리는 것을 확인한 브랜드만 담았습니다. 확정 목록은 리서치 완료 후 교체됩니다.";
+export const icpPeers: Record<string, { why: string; brands: { name: string; url: string; desc: string }[] }> = {
+  A1: {
+    why: "아이 식사를 차리는 장면에서 같이 비교되는 아이 식기 브랜드",
+    brands: [{ name: "EDISONmama", url: "https://global.edisonmama.com", desc: "유아 · 아이 식기 브랜드 (해외 공식 사이트)" }],
+  },
+  A2: {
+    why: "한 끼를 칸으로 나눠 챙기는 식단 · 도시락 용기",
+    brands: [{ name: "Bentgo", url: "https://bentgo.com", desc: "도시락 · 밀프렙 용기 (칸 분리)" }],
+  },
+  A3: {
+    why: "보관 · 서빙 · 전자레인지까지 하나로 쓰는 실용 주방 용기",
+    brands: [
+      { name: "LocknLock (락앤락)", url: "https://www.locknlock.com", desc: "보관용기 · 주방용품" },
+      { name: "Glasslock (글라스락)", url: "https://www.glasslock.co.kr", desc: "유리 밀폐용기 · 테이블웨어" },
+    ],
+  },
+  B1: {
+    why: "식탁과 홈카페의 분위기를 만드는 디자인 식기 · 리빙 브랜드",
+    brands: [
+      { name: "KINTO", url: "https://kinto.co.jp", desc: "식기 · 드링크웨어 · 인테리어 (일본)" },
+      { name: "Ferm Living", url: "https://fermliving.com", desc: "덴마크 디자인 리빙 · 주방 용품" },
+      { name: "HAY", url: "https://www.hay.com", desc: "디자인 가구 · 액세서리" },
+    ],
+  },
+  B2: {
+    why: "집들이 · 신혼부부 선물로 함께 떠올리는 프리미엄 주방 · 식기 브랜드",
+    brands: [
+      { name: "Le Creuset", url: "https://www.lecreuset.com", desc: "프리미엄 주방 · 식기 브랜드" },
+      { name: "STAUB", url: "https://www.staub.com/us", desc: "프랑스 주철 주방용품 브랜드" },
+    ],
+  },
+};
+
 export const mixLabels = ["Desire", "Understand", "Trust", "Convert"];
 
 // ── 비주얼 디렉션 (BIS 12·17·18) ──

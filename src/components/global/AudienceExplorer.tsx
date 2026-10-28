@@ -43,6 +43,8 @@ export default function AudienceExplorer() {
             key={x.id}
             type="button"
             className="gm-aud-card"
+            data-gm-mk={MARKET_OF[x.id].market}
+            data-gm-ty={MARKET_OF[x.id].audience}
             style={{ ["--c" as string]: x.color }}
             aria-pressed={x.id === id}
             onClick={() => setId(x.id)}

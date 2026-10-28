@@ -269,7 +269,7 @@ export const gmAudiences: Audience[] = [
 ];
 
 export const gmShareNote =
-  "60/20/10/10은 전체 타깃 전략 비중입니다. 광고비 계약은 국내/해외 두 항목으로 확정되어 있으며, 세부 고객군 및 국가별 실제 예산은 대행사 협의가 필요합니다. 견적 총액이나 서비스 기간을 이 비율로 기계적으로 나누지 않으며, LinkedIn도 60/20/10/10으로 배분하지 않습니다.";
+  "60/20/10/10은 전체 타깃 전략 비중입니다. 광고비 계약은 국내/해외 두 항목으로 확정되어 있으며, 세부 고객군 및 국가별 실제 예산은 대행사 협의가 필요합니다. 견적 총액이나 서비스 기간을 이 비율로 기계적으로 나누지 않습니다. LinkedIn은 이 비율이 아니라 별도로 국내 60 · 글로벌 40 기준을 씁니다(06 참고).";
 
 // ── 02. 제품: 사실은 foodle.ts의 products · matrix를 쓰고, 여기에는 B2B 시나리오 상태만 둔다 ──
 // type: record = 공급 실적이 자료에 있음 / proposal = 제안(가설), 실적 확인 전
@@ -407,7 +407,7 @@ export const gmB2bIcps: B2bIcp[] = [
     landing: "foodle.biz/partnership",
     channel: "Google (KR B2B)",
     kpi: "Leads · Qualified Leads · Meetings",
-    caution: "영양사 · 급식 담당자는 LinkedIn 도달이 제한적일 수 있어 Google 검색 중심으로 봅니다.",
+    caution: "영양사 직무는 LinkedIn 도달이 제한적일 수 있습니다. 영양사 단독보다 총무팀 · 구매 의사결정권자와 기업(회사) 단위로 타기팅하고, 도달 규모는 확인 후 정합니다(Google 검색과 병행).",
   },
   {
     code: "G4",
@@ -731,6 +731,39 @@ export const gmPhases: { step: string; what: string; gate: string }[] = [
 export const gmPhaseNote = "집행 순서는 전략 제언이며, 합의 전에는 확정이 아닙니다. 월 매체 실비 합계는 국내 + 해외를 더한 값이고(참고 계산), 이 범위에서 최적 예산이나 리드 건수를 보장하지 않습니다.";
 
 // ── 06. LinkedIn ──
+// LinkedIn 메인 타겟 (푸들 지정 기준, 2026.10.28). 국내 60% · 글로벌 40%는 타깃 · 콘텐츠 우선순위이며 광고비 분할이 아니다.
+export const gmLiMain = {
+  stamp: "푸들 지정 기준 · 2026.10.28",
+  split: [
+    { label: "국내", pct: 60, color: "#cba258" },
+    { label: "글로벌", pct: 40, color: "#b9b4aa" },
+  ],
+  groups: [
+    {
+      region: "국내",
+      pct: 60,
+      mk: "KR",
+      items: [
+        { who: "소비재 유통사 MD", sub: "온 · 오프라인 유통사", examples: ["카카오톡 선물하기", "현대백화점", "홈쇼핑", "신세계프라퍼티"], icp: "G1 (유통 · 소싱)", note: "G1은 해외 소싱 바이어 중심이라 국내 유통 MD와 완전히 같지는 않습니다. ICP 정의를 맞춰야 합니다." },
+        { who: "식품 · 컨세션 · 단체급식 기업의 B2B 영양사 · 의사결정권자 (총무팀)", sub: "단체급식 · 컨세션 운영 기업", examples: ["아워홈", "CJ프레시웨이", "현대그린푸드", "풀무원푸드앤컬처", "삼성웰스토리"], icp: "G3", note: "영양사 직무는 LinkedIn 도달이 제한적일 수 있어, 총무팀 · 구매 의사결정권자와 기업 단위로 확인합니다." },
+        { who: "호텔 · 리조트 구매 담당자", sub: "호스피탈리티 구매", examples: [] as string[], icp: "G3", note: "근거: 2022 신세계푸드 × 신라호텔 F&B Plate07 공급 기록." },
+        { who: "기프트 · 답례품 구매 담당자", sub: "기업 · 행사 선물", examples: [] as string[], icp: "G2", note: "청와대 답례품 사례는 제품명이 확인되지 않아 제품과 연결하지 않습니다." },
+      ],
+    },
+    {
+      region: "글로벌",
+      pct: 40,
+      mk: "JP US",
+      items: [
+        { who: "B2C 소비재 유통사 MD", sub: "디자이너가 만든 테이블웨어 · 식기 부문 바이어 및 리테일러", examples: [] as string[], icp: "G4 · G5", note: "근거: 2024 파리 Maison&Objet 전시 참가, 2026 도쿄 츠타야 팝업. 해외 도매 계약 실적은 아닙니다." },
+        { who: "B2B 부문 바이어", sub: "기업 내부용 식기 · 식판, 호텔 · 리조트 룸서비스용 용기", examples: [] as string[], icp: "신규 정의 필요 (G3의 해외 확장)", note: "룸서비스용 용기는 제품 적합성 자료가 없어 푸들 확인 후에만 약속합니다." },
+      ],
+    },
+  ],
+  existing: "예시 기업 중 풀무원푸드앤컬처(2026 공급), 현대그린푸드(2022 사내 카페테리아 Plate07 공급), 현대백화점(2026 판교점 입점)은 이미 기록이 있어 신규 발굴이 아니라 관계 확장 · 레퍼런스 대상으로 구분합니다.",
+  note: "예시 기업은 타기팅 후보이며 거래나 계약 관계를 뜻하지 않습니다. 국내 60% · 글로벌 40%는 LinkedIn 타깃 · 콘텐츠의 우선순위이고, 광고비 120,000원(1회)을 이 비율로 나누지 않습니다. 글로벌에 일본 · 미국 중 어느 국가를 먼저 둘지는 대행사와 협의합니다.",
+};
+
 export const gmLinkedin = {
   roles: [
     "기업 신뢰 형성",
@@ -759,7 +792,7 @@ export const gmLinkedin = {
       local: ["구매 담당자", "MD · 상품기획", "해외영업 · BD", "ESG · CSR 담당", "총무 · 복리후생"],
       companies: "무역 · 유통 · 리빙 편집숍 · 기업 구매팀",
       offer: "한국 디자인 식기 소싱 · 대량 주문",
-      note: "영양사 · 급식 담당은 LinkedIn 도달이 제한적일 수 있어 Google 검색을 우선합니다.",
+      note: "영양사 직무는 도달이 제한적일 수 있어, 총무팀 · 구매 의사결정권자와 기업(회사) 단위 타기팅으로 확인합니다.",
     },
     {
       code: "JP",
@@ -799,7 +832,7 @@ export const gmLinkedin = {
     "LinkedIn 직무 · 산업 타기팅은 Google 검색 키워드와 용도가 다릅니다. 두 목록을 섞지 않습니다.",
     "푸들 LinkedIn 기업 페이지와 대표 프로필의 URL은 자료에 없어 확인이 필요합니다.",
   ],
-  shareNote: "LinkedIn은 B2B(G1~G5)에 집중합니다. 일반 소비자 60%를 유료 타깃으로 강제하지 않고, 국가별 비중은 대행사와 협의합니다. 제한된 예산에서는 대규모 인지도 광고보다 담당자 신뢰 구축, 리드 확보 가능성 검증, 영업 연계를 우선합니다.",
+  shareNote: "LinkedIn은 B2B(G1~G5)에 집중하고, 메인 타깃은 국내 60% · 글로벌 40%입니다. 이 비율은 LinkedIn 타깃 · 콘텐츠 우선순위이며 전체 60/20/10/10과는 별개입니다. 일반 소비자를 유료 타깃으로 강제하지 않고, 제한된 예산에서는 대규모 인지도 광고보다 담당자 신뢰 구축, 리드 확보 가능성 검증, 영업 연계를 우선합니다.",
   leads: [
     { k: "Lead", v: "관련 문의 또는 연결 요청" },
     { k: "Qualified Lead", v: "대상 국가 · 기업 · 업종 · 담당자의 의도가 확인된 문의" },
@@ -1053,7 +1086,7 @@ const ACTS: Act[] = [
   { id: "proof", group: 3, title: "사업 · 제품 관련 실제 납품 · 전시 증빙 확인", scope: "confirm" },
   { id: "copy", group: 3, title: "검색광고 문안 · 현지어 표현 검토 및 승인", scope: "confirm" },
   { id: "li-admin", group: 3, title: "LinkedIn 기업 페이지 관리자 권한 확인", scope: "quote" },
-  { id: "li-reach", group: 3, title: "LinkedIn 직무 · 업종 · 국가별 실제 도달 규모 검증", scope: "quote" },
+  { id: "li-reach", group: 3, title: "LinkedIn 메인 타겟(국내 4 · 글로벌 2)의 직무 · 업종 · 기업별 실제 도달 규모 검증", scope: "quote" },
   { id: "lead-def", group: 4, title: "B2B 유효 리드 기준 및 후속 영업 담당 합의", scope: "confirm" },
   { id: "report", group: 4, title: "주간 보고 양식 · 정기 리뷰 일정 수립", scope: "strategy" },
 ];

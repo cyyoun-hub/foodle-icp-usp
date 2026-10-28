@@ -34,6 +34,7 @@ import {
   gmLandingCheckDate,
   gmLandingChecks,
   gmLinkedin,
+  gmLiMain,
   gmMeta,
   gmOverview,
   gmPhaseNote,
@@ -579,6 +580,46 @@ export default function GlobalMarketingPage() {
             <p className="gm-li-quote">
               <ScopeBadge s="quote" /> {gmLinkedin.quoteScope}
             </p>
+
+            <h3 className="gm-h3 gm-on-dark">
+              LinkedIn 메인 타겟: 국내 60% · 글로벌 40% <span className="gm-li-stamp">{gmLiMain.stamp}</span>
+            </h3>
+            <div className="gm-li-split" role="img" aria-label={`LinkedIn 메인 타겟 비중: ${gmLiMain.split.map((x) => `${x.label} ${x.pct}%`).join(", ")}`}>
+              {gmLiMain.split.map((x) => (
+                <i key={x.label} style={{ width: `${x.pct}%`, background: x.color }}>
+                  {x.label} {x.pct}%
+                </i>
+              ))}
+            </div>
+            <div className="gm-li-grid">
+              {gmLiMain.groups.map((g) => (
+                <article key={g.region} className="gm-li-card" data-gm-mk={g.mk} data-gm-ty="B2B">
+                  <h4>
+                    {g.region} <small>{g.pct}%</small>
+                  </h4>
+                  <ol className="gm-li-main">
+                    {g.items.map((it) => (
+                      <li key={it.who}>
+                        <b>{it.who}</b>
+                        <span className="gm-li-sub">{it.sub}</span>
+                        {it.examples.length > 0 && (
+                          <ul className="gm-chips gm-chips-dark">
+                            {it.examples.map((e) => (
+                              <li key={e}>{e}</li>
+                            ))}
+                          </ul>
+                        )}
+                        <small>
+                          가까운 ICP: <b>{it.icp}</b> · {it.note}
+                        </small>
+                      </li>
+                    ))}
+                  </ol>
+                </article>
+              ))}
+            </div>
+            <p className="gm-li-quote">{gmLiMain.existing}</p>
+            <p className="gm-micro gm-on-dark-soft">{gmLiMain.note}</p>
             <div className="gm-li-grid">
               <article className="gm-li-card">
                 <h3>LinkedIn의 역할</h3>

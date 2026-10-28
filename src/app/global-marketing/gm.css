@@ -302,9 +302,9 @@
 
 /* 필터에 해당하지 않는 카드는 흐리게 (예상 가능한 연동) */
 [data-gm-mk], [data-gm-ty], [data-gm-ch] { transition: opacity 0.25s ease; }
-.gm[data-mk="KR"] [data-gm-mk]:not([data-gm-mk="KR"]),
-.gm[data-mk="JP"] [data-gm-mk]:not([data-gm-mk="JP"]),
-.gm[data-mk="US"] [data-gm-mk]:not([data-gm-mk="US"]),
+.gm[data-mk="KR"] [data-gm-mk]:not([data-gm-mk~="KR"]),
+.gm[data-mk="JP"] [data-gm-mk]:not([data-gm-mk~="JP"]),
+.gm[data-mk="US"] [data-gm-mk]:not([data-gm-mk~="US"]),
 .gm[data-ty="B2C"] [data-gm-ty]:not([data-gm-ty="B2C"]),
 .gm[data-ty="B2B"] [data-gm-ty]:not([data-gm-ty="B2B"]),
 .gm[data-ch="google"] [data-gm-ch]:not([data-gm-ch="google"]),
@@ -416,3 +416,17 @@
 
 .gm .sub-head { margin-top: var(--space-8); }
 .gm .sub-head:first-of-type { margin-top: 0; }
+
+/* LinkedIn 메인 타겟 (국내 60 · 글로벌 40) */
+.gm-li-stamp { margin-left: 10px; padding: 3px 12px; border-radius: var(--radius-pill); background: rgba(255, 255, 255, 0.12); color: var(--gold); font-size: 12px; font-weight: 700; vertical-align: middle; white-space: nowrap; }
+.gm-li-split { display: flex; gap: 4px; height: 48px; margin: var(--space-3) 0; }
+.gm-li-split i { display: grid; place-items: center; border-radius: 10px; font-style: normal; font-size: 15px; font-weight: 700; color: #2b2a28; min-width: 0; }
+.gm-li-main { list-style: none; margin: 0 !important; padding: 0 !important; display: grid; gap: var(--space-3) !important; }
+.gm-li-main > li { display: grid; gap: 6px; padding-bottom: var(--space-3); border-bottom: 1px solid rgba(255, 255, 255, 0.12); }
+.gm-li-main > li:last-child { border-bottom: 0; padding-bottom: 0; }
+.gm-li-main > li > b { font-size: 16px; line-height: 1.4; }
+.gm-li-sub { font-size: 13px; color: var(--on-dark-soft); }
+.gm-li-main small { font-size: 12px; color: var(--on-dark-soft); line-height: 1.5; }
+.gm-li-main small b { color: var(--gold); font-size: 12px; }
+.gm-li-main .gm-chips li { font-size: 12px; padding: 4px 10px; }
+.gm-micro.gm-on-dark-soft + .gm-li-grid { margin-top: var(--space-5); }
